@@ -1,15 +1,16 @@
-m = 0
+result = []
 s = 0
-
 with open('input.txt') as f:
   data = f.read().splitlines()
 
 for i in data:
   if i == '':
-    if s >= m:
-      m = s
+    m = s
+    result.append(m)
     s = 0
   else:
     s += int(i)
     
-print(m)
+print(f"Max : {max(result)}")
+
+print(f"Sum of Top 3 : {sum(sorted(result,reverse=True)[:3])}")
