@@ -1,7 +1,5 @@
 with open('input.txt') as f:
-  data = f.read().splitlines()
-
-data = [int(i) for i in data]
+  data = [int(i) for i in f]
 
 
 def count_larger(data):
@@ -11,11 +9,16 @@ def count_larger(data):
       count += 1
   return count
 
-print(f"Count of measurements larger than previous measurements : {count_larger(data)}")
 
-result = []
+def part_1(data):
+  print(count_larger(data))
 
-for i in range(2,len(data)):
-  result.append(data[i] + data[i-1] + data[i-2])
-  
-print(f"Count of sum measurements larger than previous sum : {count_larger(result)}")
+
+def part_2(data):
+  result = []
+  for i in range(2, len(data)):
+    result.append(data[i] + data[i-1] + data[i-2])
+  print(count_larger(result))
+
+part_1(data)
+part_2(data)

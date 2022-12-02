@@ -1,17 +1,24 @@
 with open('input.txt') as f:
   data = f.read()
 
-print(
-    f"Floor do the instructions take Santa : {data.count('(') - data.count(')')}")
 
-floor = 0
-position = 0
-for i in data:
-  position += 1
-  if i == '(':
-    floor += 1
-  if i == ')':
-    floor -= 1
-  if floor <= -1:
-    print(f"Position of the character that causes Santa to first enter the basement : {position}")
-    break
+def part_1(data):
+  print(data.count('(') - data.count(')'))
+
+
+def part_2(data):
+  floor = 0
+  position = 0
+  for i in data:
+    position += 1
+    if i == '(':
+      floor += 1
+    if i == ')':
+      floor -= 1
+    if floor <= -1:
+      print(position)
+      break
+
+
+part_1(data)
+part_2(data)

@@ -1,8 +1,6 @@
 with open('input.txt') as f:
   data = f.read().splitlines()
 
-score = [0, 0]
-
 default = {'A': 'rock', 'B': 'paper', 'C': 'scissors',
            'X': 'rock', 'Y': 'paper', 'Z': 'scissors'}
 
@@ -21,14 +19,23 @@ def get_score(oppenent, player):
   return 0
 
 
-for i in data:
-  score[0] += default_score[i[1]]
-  score[0] += get_score(i[0], i[1])
-  score[1] += default_score[i[1]] * 3 - 3
-  for j in ('X', 'Y', 'Z'):
-    if default_score[i[1]] * 3 - 3 == get_score(i[0], j):
-      score[1] += default_score[j]
+def part_1(data):
+  score = 0
+  for i in data:
+    score += default_score[i[1]]
+    score += get_score(i[0], i[1])
+  print(score)
 
 
-print(f"Total score(part 1) : {score[0]}")
-print(f"Total score(part 2) : {score[1]}")
+def part_2(data):
+  score = 0
+  for i in data:
+    score += default_score[i[1]] * 3 - 3
+    for j in ('X', 'Y', 'Z'):
+      if default_score[i[1]] * 3 - 3 == get_score(i[0], j):
+        score += default_score[j]
+  print(score)
+
+
+part_1(data)
+part_2(data)
