@@ -11,6 +11,6 @@ for i in data:
   else:
     s += int(i)
     
-print(f"Max : {max(result)}")
+print(f"Total Calories is that Elf carrying : {max(result)}")
 
-print(f"Sum of Top 3 : {sum(sorted(result,reverse=True)[:3])}")
+print(f"Sum of the most Calories(top 3) : {sum(sorted(result,reverse=True)[:3])}")

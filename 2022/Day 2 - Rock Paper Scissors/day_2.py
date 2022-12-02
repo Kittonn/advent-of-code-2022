@@ -30,5 +30,5 @@ for i in data:
       score[1] += default_score[j]
 
 
-print(f"Part 1 score : {score[0]}")
-print(f"Part 2 score : {score[1]}")
+print(f"Total score(part 1) : {score[0]}")
+print(f"Total score(part 2) : {score[1]}")
