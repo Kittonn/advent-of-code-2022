@@ -19,9 +19,16 @@ def part_1(data):
 def part_2(data):
   overlap = 0
   for i in data:
-    pass
+    if i[0][0] < i[1][0] and i[0][1] < i[1][0]:
+      overlap += 1
+    elif i[1][0] < i[0][0] and i[1][1] < i[0][0]:
+      overlap += 1
+    elif i[0][0] > i[1][1] and i[0][1] > i[1][1]:
+      overlap += 1
+    elif i[1][0] > i[0][1] and i[1][1] > i[0][1]:
+      overlap += 1
     
-  print(overlap)
+  print(len(data) - overlap)
   
 
 
